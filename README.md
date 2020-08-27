@@ -2,4 +2,4 @@
 use gitpage
 
 view websit {username}.github.io/{project_name}  
-such like  [git page](htps://chseng213.github.io/gitpage_test)
+such like  [git page](https://chseng213.github.io/gitpage_test)
