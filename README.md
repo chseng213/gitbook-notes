@@ -1,5 +1,24 @@
-# gitpage_test
-use gitpage
+---
+description: 记录使用到的各类数据库服务问题
+---
 
-view websit {username}.github.io/{project_name}  
-such like  [git page](https://chseng213.github.io/gitpage_test)
+# Initial page
+
+## 关系型数据库
+
+* MySQL
+* PostgreSQL
+
+## 非关系型数据库
+
+* Redis
+* MongoDB
+
+## 消息队列
+
+* RabbitMQ
+
+
+
+
+
