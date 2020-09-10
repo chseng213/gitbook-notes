@@ -2,7 +2,9 @@
 
 * [Initial page](README.md)
 * [Linux](linux/README.md)
-  * [Centos](linux/centos.md)
+  * [Centos](linux/centos/README.md)
+    * [Untitled](linux/centos/untitled-1.md)
+    * [Untitled](linux/centos/untitled.md)
   * [Mac](linux/mac.md)
 * [Python](python/README.md)
   * [内置方法学习](python/nei-zhi-fang-fa-xue-xi.md)
