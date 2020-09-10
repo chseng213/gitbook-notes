@@ -1,6 +1,9 @@
 # Table of contents
 
 * [Initial page](README.md)
+* [Linux](linux/README.md)
+  * [Centos](linux/centos.md)
+  * [Mac](linux/mac.md)
 * [Python](python/README.md)
   * [内置方法学习](python/nei-zhi-fang-fa-xue-xi.md)
   * [魔术方法](python/mo-shu-fang-fa.md)
