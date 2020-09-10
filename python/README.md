@@ -4,7 +4,7 @@ description: change log
 
 # Python
 
-## 2020.09.10 - 
+## 2020.09.10 -
 
 ### Added
 
@@ -14,9 +14,5 @@ description: change log
 
 ### Fixed
 
-- 
-
-### Changed
-
-- 
-
+* **Changed**
+* 

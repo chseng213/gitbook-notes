@@ -4,7 +4,7 @@ description: 记录项目过程中使用过的魔术方法
 
 # 魔术方法
 
-[TOC]
+\[TOC\]
 
 ## 1`__new__`
 
@@ -16,11 +16,11 @@ description: 记录项目过程中使用过的魔术方法
 
 **创建实例需要满足特定条件**
 
-+ 满足特定条件
+* 满足特定条件
 
   > 18岁为成人
 
-```Python
+```python
 class Person:    
     def __new__(cls,age, name):        
         if age and age>18:                      
