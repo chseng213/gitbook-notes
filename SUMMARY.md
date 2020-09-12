@@ -3,6 +3,7 @@
 * [Initial page](README.md)
 * [Linux](linux/README.md)
   * [Centos](linux/centos/README.md)
+    * [brook](linux/centos/brook.md)
     * [Untitled](linux/centos/untitled-1.md)
     * [crontab](linux/centos/crontab.md)
   * [Mac](linux/mac/README.md)
