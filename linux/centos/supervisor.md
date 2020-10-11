@@ -6,11 +6,11 @@ description: 进程管理工具
 
 ## 简介
 
-> ​	Supervisor是用Python开发的一套通用的进程管理程序，能将一个普通的命令行进程变为后台daemon，并监控进程状态，异常退出时能自动重启。它是通过fork/exec的方式把这些被管理的进程当作supervisor的子进程来启动，这样只要在supervisor的配置文件中，把要管理的进程的可执行文件的路径写进去即可。也实现当子进程挂掉的时候，父进程可以准确获取子进程挂掉的信息的，可以选择是否自己启动和报警。supervisor还提供了一个功能，可以为supervisord或者每个子进程，设置一个非root的user，这个user就可以管理它对应的进程。
+> ​ Supervisor是用Python开发的一套通用的进程管理程序，能将一个普通的命令行进程变为后台daemon，并监控进程状态，异常退出时能自动重启。它是通过fork/exec的方式把这些被管理的进程当作supervisor的子进程来启动，这样只要在supervisor的配置文件中，把要管理的进程的可执行文件的路径写进去即可。也实现当子进程挂掉的时候，父进程可以准确获取子进程挂掉的信息的，可以选择是否自己启动和报警。supervisor还提供了一个功能，可以为supervisord或者每个子进程，设置一个非root的user，这个user就可以管理它对应的进程。
 
 ## 安装
 
-```
+```text
 yum install epel-release
 yum install -y supervisor
 systemctl enable supervisord
@@ -20,19 +20,15 @@ systemctl status supervisord
 
 ## 使用
 
-### supervisor配置文件：`/etc/supervisord.conf` 
+### supervisor配置文件：`/etc/supervisord.conf`
 
-*注：supervisor的配置文件默认是不全的，不过在大部分默认的情况下，上面说的基本功能已经满足。*
+_注：supervisor的配置文件默认是不全的，不过在大部分默认的情况下，上面说的基本功能已经满足。_
 
-### 子进程配置文件路径：`/etc/supervisord.d/` 
+### 子进程配置文件路径：`/etc/supervisord.d/`
 
-*注：默认子进程配置文件为ini格式，可在supervisor主配置文件中修改。*
-
-
+_注：默认子进程配置文件为ini格式，可在supervisor主配置文件中修改。_
 
 ## 配置文件
-
-
 
 ### supervisor.conf配置文件说明：
 
@@ -41,12 +37,12 @@ systemctl status supervisord
 file=/tmp/supervisor.sock   ;UNIX socket 文件，supervisorctl 会使用
 ;chmod=0700                 ;socket文件的mode，默认是0700
 ;chown=nobody:nogroup       ;socket文件的owner，格式：uid:gid
- 
+
 ;[inet_http_server]         ;HTTP服务器，提供web管理界面
 ;port=127.0.0.1:9001        ;Web管理后台运行的IP和端口，如果开放到公网，需要注意安全性
 ;username=user              ;登录管理后台的用户名
 ;password=123               ;登录管理后台的密码
- 
+
 [supervisord]
 logfile=/tmp/supervisord.log ;日志文件，默认是 $CWD/supervisord.log
 logfile_maxbytes=50MB        ;日志文件大小，超出会rotate，默认 50MB，如果设成0，表示不限制大小
@@ -56,11 +52,11 @@ pidfile=/tmp/supervisord.pid ;pid 文件
 nodaemon=false               ;是否在前台启动，默认是false，即以 daemon 的方式启动
 minfds=1024                  ;可以打开的文件描述符的最小值，默认 1024
 minprocs=200                 ;可以打开的进程数的最小值，默认 200
- 
+
 [supervisorctl]
 serverurl=unix:///tmp/supervisor.sock ;通过UNIX socket连接supervisord，路径与unix_http_server部分的file一致
 ;serverurl=http://127.0.0.1:9001 ; 通过HTTP的方式连接supervisord
- 
+
 ; [program:xx]是被管理的进程配置参数，xx是进程的名称
 [program:xx]
 command=/opt/apache-tomcat-8.0.35/bin/catalina.sh run  ; 程序启动命令
@@ -77,17 +73,15 @@ stdout_logfile_backups = 20   ; stdout 日志文件备份数，默认是10
 stdout_logfile=/opt/apache-tomcat-8.0.35/logs/catalina.out
 stopasgroup=false     ;默认为false,进程被杀死时，是否向这个进程组发送stop信号，包括子进程
 killasgroup=false     ;默认为false，向进程组发送kill信号，包括子进程
- 
+
 ;包含其它配置文件
 [include]
 files = relative/directory/*.ini    ;可以指定一个或多个以.ini结束的配置文件
 ```
 
-
-
 ### 子进程配置文件说明：
 
-给需要管理的子进程(程序)编写一个配置文件，放在`/etc/supervisor.d/`目录下，以`.ini`作为扩展名（每个进程的配置文件都可以单独分拆也可以把相关的脚本放一起）。如任意定义一个和脚本相关的项目名称的选项组（/etc/supervisord.d/test.conf）：
+给需要管理的子进程\(程序\)编写一个配置文件，放在`/etc/supervisor.d/`目录下，以`.ini`作为扩展名（每个进程的配置文件都可以单独分拆也可以把相关的脚本放一起）。如任意定义一个和脚本相关的项目名称的选项组（/etc/supervisord.d/test.conf）：
 
 ```ruby
 #项目名
@@ -129,7 +123,7 @@ autostart=true
 autorestart=false 
 stderr_logfile=/tmp/test_stderr.log 
 stdout_logfile=/tmp/test_stdout.log 
-#user = test  
+#user = test
 ```
 
 ## 命令
@@ -142,3 +136,4 @@ supervisorctl restart       //重启es
 supervisorctl update        //配置文件修改后使用该命令加载新的配置
 supervisorctl reload        //重新启动配置中的所有程序
 ```
+

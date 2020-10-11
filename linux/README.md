@@ -8,11 +8,7 @@
 
 ### 2020.09.26
 
-+ `supervisor` 进程管理工具
-
-
-
-
+* `supervisor` 进程管理工具
 
 ## Fixed
 
