@@ -120,3 +120,51 @@ docker rm p1
 
 ```
 
+### 容器网络管理
+
+**固定ip/端口映射/目录挂载**
+
+```
+# 创建docker网关
+# 该网关可以生成2**16个ip
+docker network create --subnet=172.18.0.0/16 python_net
+
+# 查看docker网关
+docker network ls
+
+# 删除网关
+docker network rm python_net
+
+# 运行容器指定网关以及ip
+docker run -it --net python_net --ip 172.18.0.2 --name=p1  python:3.8 bash
+
+# 映射端口  -p  宿主机:容器 
+docker run -it -p 9500:5000 python:3.8 bash
+# 可以映射多端口
+# 容器运行时端口映射才会生效
+docker run -it  -p 9500:5000 -p 9600:3306 --name=p1  python:3.8 bash
+
+# 目录挂载
+# 目录页可挂载多个   -v 宿主机目录:容器目录
+docker run -it -v /root/project:root/project --name=p1  python:3.8 bash
+
+```
+
+### 创建python容器
+
+```
+# 创建宿主机待挂载目录
+mkdir project
+
+# 后台运行容器
+docker run -it -d --name=p1 -p9500:5000 -v /root/project:/root/project --net python_net --ip 172.18.0.2 python:3.8 bash
+
+# 进入容器bash
+docker exec -it p1 bash
+
+# 使用镜像源安装python拓展
+pip install mysql-connector-python -i  https://pypi.tuna.tsinghua.edu.cn/simple
+
+
+```
+
