@@ -6,12 +6,6 @@ Added
 
 * `Interview preparation`
 
-
-
-
-
-
-
 ### Changed
 
 * Animals are now super cute, all of them.
@@ -21,6 +15,4 @@ Added
 ### Added
 
 * Introduced animals into the world, we believe they're going to be a neat addition.
-
-
 

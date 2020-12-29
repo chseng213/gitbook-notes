@@ -4,32 +4,26 @@ description: 安装以及加速器安装
 
 # docker
 
-
-
 > 在镜像的基础上生成容器,镜像只读
 >
 > 容器是在镜像基础之上创建出的虚拟实例,内容可读可写
 >
 > 通过镜像可以创建多个容器
 
-**硬件设备->linux->docker->镜像->多个容器**
-
-
+**硬件设备-&gt;linux-&gt;docker-&gt;镜像-&gt;多个容器**
 
 ## 安装docker
 
-```
+```text
 # 添加 -y 避免安装时候的确认操作
 yum install docker -y
 
 service   start docker
 ```
 
-
-
 ## 安装docker加速器
 
-```
+```text
 curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://f1361db2.m.daocloud.io
 
 # 修改/etc/docker/deamon.json文件,将mirrors列表中的逗号去掉(部分系统不需要去)
@@ -43,28 +37,26 @@ service restart docker
 
 > 与仓库相关
 >
-> + search
-> + push
-> + pull
+> * search
+> * push
+> * pull
 >
 > 与导入导出相关
 >
-> + save/export
-> + load/import
+> * save/export
+> * load/import
 >
 > 与dockerfile相关
 >
-> + build
+> * build
 >
 > 查看删除
 >
-> + images
-> + inspect
-> + rmi
+> * images
+> * inspect
+> * rmi
 
-
-
-```
+```text
 # 下载镜像
 docker pull  python:3.8
 
@@ -82,21 +74,16 @@ docker rmi python:3.8
 
 # tar导入为镜像
 docker load < /root/python.tar
-
-
-
 ```
 
 ### 容器相关命令
 
-> + attach/exec/run
-> + start/stop/pause/unpause
-> + inspect/ps
-> + rm
+> * attach/exec/run
+> * start/stop/pause/unpause
+> * inspect/ps
+> * rm
 
-
-
-```
+```text
 # 创建运行并进入容器  退出容器时 容器停止
 docker run -it --name=p1 python:3.8 bash 
 
@@ -111,20 +98,19 @@ docker pause p1
 
 # 
 docker unpause p1
- 
+
 # 进入运行容器中  推出容器时  容器依然是执行状态
 docker exec -it p1 bash
 
 # 删除容器 (只能删除停止的容器)
 docker rm p1
-
 ```
 
 ### 容器网络管理
 
 **固定ip/端口映射/目录挂载**
 
-```
+```text
 # 创建docker网关
 # 该网关可以生成2**16个ip
 docker network create --subnet=172.18.0.0/16 python_net
@@ -147,12 +133,11 @@ docker run -it  -p 9500:5000 -p 9600:3306 --name=p1  python:3.8 bash
 # 目录挂载
 # 目录页可挂载多个   -v 宿主机目录:容器目录
 docker run -it -v /root/project:root/project --name=p1  python:3.8 bash
-
 ```
 
 ### 创建python容器
 
-```
+```text
 # 创建宿主机待挂载目录
 mkdir project
 
@@ -164,7 +149,5 @@ docker exec -it p1 bash
 
 # 使用镜像源安装python拓展
 pip install mysql-connector-python -i  https://pypi.tuna.tsinghua.edu.cn/simple
-
-
 ```
 
