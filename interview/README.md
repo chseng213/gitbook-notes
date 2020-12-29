@@ -6,6 +6,14 @@ Added
 
 * `Interview preparation`
 
+## 2020.12.29
+
+Added
+
+- `cpu-structure`
+
+
+
 ### Changed
 
 * Animals are now super cute, all of them.
