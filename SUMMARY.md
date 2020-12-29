@@ -27,6 +27,7 @@
   * [Untitled](mysql/untitled.md)
   * [mysql-use](mysql/mysql-use.md)
 * [Interview](interview/README.md)
+  * [interview-preparation](interview/interview-preparation.md)
   * [cup-structure](interview/cup-structure.md)
   * [Untitled](interview/untitled.md)
 
