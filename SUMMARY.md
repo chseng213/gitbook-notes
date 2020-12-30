@@ -23,7 +23,7 @@
 * [MQ](mq/README.md)
   * [RabbitMQ](mq/rabbitmq.md)
 * [Mysql](mysql/README.md)
-  * [Untitled](mysql/untitled-2.md)
+  * [mysql-index](mysql/mysql-index.md)
   * [Untitled](mysql/untitled-1.md)
   * [Untitled](mysql/untitled.md)
   * [mysql-use](mysql/mysql-use.md)

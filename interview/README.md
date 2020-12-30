@@ -10,9 +10,7 @@ Added
 
 Added
 
-- `cpu-structure`
-
-
+* `cpu-structure`
 
 ### Changed
 
